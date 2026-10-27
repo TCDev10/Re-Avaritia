@@ -170,10 +170,10 @@ dependencies {
     runtimeOnly libs.jei.runtime
 
     // Jade
-    implementation libs.jade
+    compileOnly libs.jade
 
     // Curios API
-    implementation libs.curios.neoforge
+    compileOnly files('libs/curios-neoforge-16.0.0+26.2.jar')
 
     // KubeJS integration (compile only, optional at runtime)
     compileOnly libs.kubejs.neoforge

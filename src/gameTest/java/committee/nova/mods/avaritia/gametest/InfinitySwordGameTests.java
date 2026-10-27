@@ -1,5 +1,7 @@
 package committee.nova.mods.avaritia.gametest;
 
+import net.minecraft.world.entity.EntityTypes;
+
 import committee.nova.mods.avaritia.Const;
 import committee.nova.mods.avaritia.common.item.tools.infinity.InfinitySwordItem;
 import committee.nova.mods.avaritia.init.config.ModConfig;
@@ -65,7 +67,7 @@ public final class InfinitySwordGameTests {
         try {
             ModConfig.isSwordAttackEndless.set(true);
             var attacker = helper.makeMockPlayer(GameType.SURVIVAL);
-            var dragon = helper.spawn(EntityType.ENDER_DRAGON, new BlockPos(2, 2, 2));
+            var dragon = helper.spawn(EntityTypes.ENDER_DRAGON, new BlockPos(2, 2, 2));
             var sword = (InfinitySwordItem) ModItems.infinity_sword.get();
 
             boolean handled = sword.onLeftClickEntity(new ItemStack(sword), attacker, dragon.getParts()[0]);

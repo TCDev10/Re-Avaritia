@@ -1,5 +1,7 @@
 package committee.nova.mods.avaritia.init.data.provider.recipe;
 
+import net.minecraft.world.item.DyeColor;
+
 import committee.nova.mods.avaritia.Const;
 
 import committee.nova.mods.avaritia.common.crafting.recipe.CompressorRecipe;
@@ -20,8 +22,8 @@ import net.minecraft.advancements.Advancement;
 import net.minecraft.advancements.AdvancementHolder;
 import net.minecraft.advancements.AdvancementRequirements;
 import net.minecraft.advancements.AdvancementRewards;
-import net.minecraft.advancements.Criterion;
-import net.minecraft.advancements.criterion.RecipeUnlockedTrigger;
+import net.minecraft.advancements.triggers.Criterion;
+import net.minecraft.advancements.triggers.RecipeUnlockedTrigger;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.NonNullList;
 import net.minecraft.core.component.DataComponentPatch;
@@ -248,25 +250,25 @@ public class AvaritiaRecipeProvider extends RecipeProvider {
                         .put('f', Items.END_CRYSTAL)
                         .put('g', ModItems.neutron_pile.get()),
                 "has_neutron_pile", has(ModItems.neutron_pile.get()));
-        musicDisc(output, Items.MUSIC_DISC_13, Items.YELLOW_DYE, "music_disc_13");
-        musicDisc(output, Items.MUSIC_DISC_CAT, Items.GREEN_DYE, "music_disc_cat");
-        musicDisc(output, Items.MUSIC_DISC_BLOCKS, Items.ORANGE_DYE, "music_disc_blocks");
-        musicDisc(output, Items.MUSIC_DISC_CHIRP, Items.RED_DYE, "music_disc_chirp");
-        musicDisc(output, Items.MUSIC_DISC_FAR, Items.LIME_DYE, "music_disc_far");
-        musicDisc(output, Items.MUSIC_DISC_MALL, Items.PURPLE_DYE, "music_disc_mall");
-        musicDisc(output, Items.MUSIC_DISC_MELLOHI, Items.MAGENTA_DYE, "music_disc_mellohi");
-        musicDisc(output, Items.MUSIC_DISC_STAL, Items.BLACK_DYE, "music_disc_stal");
-        musicDisc(output, Items.MUSIC_DISC_STRAD, Items.WHITE_DYE, "music_disc_strad");
-        musicDisc(output, Items.MUSIC_DISC_WARD, Items.CYAN_DYE, "music_disc_ward");
+        musicDisc(output, Items.MUSIC_DISC_13, Items.DYE.pick(DyeColor.YELLOW), "music_disc_13");
+        musicDisc(output, Items.MUSIC_DISC_CAT, Items.DYE.pick(DyeColor.GREEN), "music_disc_cat");
+        musicDisc(output, Items.MUSIC_DISC_BLOCKS, Items.DYE.pick(DyeColor.ORANGE), "music_disc_blocks");
+        musicDisc(output, Items.MUSIC_DISC_CHIRP, Items.DYE.pick(DyeColor.RED), "music_disc_chirp");
+        musicDisc(output, Items.MUSIC_DISC_FAR, Items.DYE.pick(DyeColor.LIME), "music_disc_far");
+        musicDisc(output, Items.MUSIC_DISC_MALL, Items.DYE.pick(DyeColor.PURPLE), "music_disc_mall");
+        musicDisc(output, Items.MUSIC_DISC_MELLOHI, Items.DYE.pick(DyeColor.MAGENTA), "music_disc_mellohi");
+        musicDisc(output, Items.MUSIC_DISC_STAL, Items.DYE.pick(DyeColor.BLACK), "music_disc_stal");
+        musicDisc(output, Items.MUSIC_DISC_STRAD, Items.DYE.pick(DyeColor.WHITE), "music_disc_strad");
+        musicDisc(output, Items.MUSIC_DISC_WARD, Items.DYE.pick(DyeColor.CYAN), "music_disc_ward");
         extremeShaped(output, minecraftKey("music_disc_11"), RecipeCategory.MISC, Items.MUSIC_DISC_11, 1,
                 new String[]{"a a", " a ", "a a"},
                 keyMap().put('a', ModItems.record_fragment.get()),
                 "has_record_fragment", has(ModItems.record_fragment.get()));
-        musicDisc(output, Items.MUSIC_DISC_WAIT, Items.LIGHT_BLUE_DYE, "music_disc_wait");
+        musicDisc(output, Items.MUSIC_DISC_WAIT, Items.DYE.pick(DyeColor.LIGHT_BLUE), "music_disc_wait");
         musicDisc(output, Items.MUSIC_DISC_PIGSTEP, Items.NETHER_GOLD_ORE, "music_disc_pigstep");
         musicDisc(output, Items.MUSIC_DISC_OTHERSIDE, Items.GRASS_BLOCK, "music_disc_otherside");
         musicDisc(output, Items.MUSIC_DISC_5, Items.ECHO_SHARD, "music_disc_5");
-        musicDisc(output, Items.MUSIC_DISC_RELIC, Blocks.WAXED_WEATHERED_COPPER, "music_disc_relic");
+        musicDisc(output, Items.MUSIC_DISC_RELIC, Blocks.COPPER_BLOCK.waxed().weathered(), "music_disc_relic");
     }
 
     private void craftingTableRecipes(RecipeOutput output) {

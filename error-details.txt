@@ -1,0 +1,150 @@
+﻿del\PerspectiveModel.java:6: error: cannot find symbol
+symbol:   class MultiBufferSource
+location: package net.minecraft.client.renderer
+del\PerspectiveModel.java:28: error: cannot find symbol
+symbol:   class MultiBufferSource
+location: interface PerspectiveModel
+nsform\CosmicRenderable.java:5: error: cannot find symbol
+symbol:   class MultiBufferSource
+location: package net.minecraft.client.renderer
+nsform\CosmicRenderable.java:15: error: cannot find symbol
+symbol:   class MultiBufferSource
+location: interface CosmicRenderable
+nder\CosmicRenderQueue.java:5: error: cannot find symbol
+symbol:   class MultiBufferSource
+location: package net.minecraft.client.renderer
+nder\item\IItemRenderer.java:5: error: cannot find symbol
+symbol:   class MultiBufferSource
+location: package net.minecraft.client.renderer
+nder\item\IItemRenderer.java:22: error: cannot find symbol
+symbol:   class MultiBufferSource
+location: interface IItemRenderer
+loader\AvaritiaItemModelRenderers.java:15: error: cannot find symbol
+symbol:   class MultiBufferSource
+location: package net.minecraft.client.renderer
+\AvaritiaShaders.java:47: error: cannot find symbol
+symbol:   class Mode
+location: class VertexFormat
+\AvaritiaShaders.java:51: error: cannot find symbol
+symbol:   class Mode
+location: class VertexFormat
+\AvaritiaShaders.java:55: error: cannot find symbol
+symbol:   class Mode
+location: class VertexFormat
+\AvaritiaShaders.java:60: error: cannot find symbol
+symbol:   class Mode
+location: class VertexFormat
+\arrow\TraceArrowEntity.java:5: error: cannot find symbol
+symbol:   class CriteriaTriggers
+location: package net.minecraft.advancements
+\NeutronSpacePreviewRenderer.java:15: error: cannot find symbol
+symbol:   class MultiBufferSource
+location: package net.minecraft.client.renderer
+\NeutronSpacePreviewRenderer.java:150: error: package MultiBufferSource does not exist
+\util\ArcRender.java:6: error: cannot find symbol
+symbol:   class MultiBufferSource
+location: package net.minecraft.client.renderer
+\util\ArcRender.java:32: error: cannot find symbol
+symbol:   class MultiBufferSource
+location: class ArcRender
+isc\InfinityBucketItem.java:45: error: cannot find symbol
+symbol:   class Bucketable
+location: package net.minecraft.world.entity.animal
+vider\AvaritiaAdvancementProvider.java:11: error: package net.minecraft.advancements.criterion does not exist
+vider\AvaritiaAdvancementProvider.java:12: error: package net.minecraft.advancements.criterion does not exist
+vider\AvaritiaAdvancementProvider.java:13: error: package net.minecraft.advancements.criterion does not exist
+vider\AvaritiaTagProvider.java:14: error: cannot find symbol
+symbol:   class IntrinsicHolderTagsProvider
+location: package net.minecraft.data.tags
+vider\AvaritiaTagProvider.java:34: error: cannot find symbol
+symbol:   class IntrinsicHolderTagsProvider
+location: class AvaritiaTagProvider
+vider\AvaritiaTagProvider.java:37: error: cannot find symbol
+symbol:   class IntrinsicHolderTagsProvider
+location: class AvaritiaTagProvider
+vider\recipe\AvaritiaRecipeProvider.java:23: error: cannot find symbol
+symbol:   class Criterion
+location: package net.minecraft.advancements
+vider\recipe\AvaritiaRecipeProvider.java:24: error: package net.minecraft.advancements.criterion does not exist
+vider\recipe\AvaritiaRecipeProvider.java:891: error: cannot find symbol
+symbol:   class Criterion
+location: class AvaritiaRecipeProvider
+vider\recipe\AvaritiaRecipeProvider.java:896: error: cannot find symbol
+symbol:   class Criterion
+location: class AvaritiaRecipeProvider
+vider\recipe\AvaritiaRecipeProvider.java:901: error: cannot find symbol
+symbol:   class Criterion
+location: class AvaritiaRecipeProvider
+vider\recipe\AvaritiaRecipeProvider.java:906: error: cannot find symbol
+symbol:   class Criterion
+location: class AvaritiaRecipeProvider
+vider\recipe\AvaritiaRecipeProvider.java:912: error: cannot find symbol
+symbol:   class Criterion
+location: class AvaritiaRecipeProvider
+vider\recipe\AvaritiaRecipeProvider.java:918: error: cannot find symbol
+symbol:   class Criterion
+location: class AvaritiaRecipeProvider
+vider\recipe\AvaritiaRecipeProvider.java:923: error: cannot find symbol
+symbol:   class Criterion
+location: class AvaritiaRecipeProvider
+vider\recipe\AvaritiaRecipeProvider.java:927: error: cannot find symbol
+symbol:   class Criterion
+location: class AvaritiaRecipeProvider
+vider\recipe\AvaritiaRecipeProvider.java:931: error: cannot find symbol
+symbol:   class Criterion
+location: class AvaritiaRecipeProvider
+vider\recipe\AvaritiaRecipeProvider.java:936: error: cannot find symbol
+symbol:   class Criterion
+location: class AvaritiaRecipeProvider
+\ModEnchants.java:3: error: package net.minecraft.advancements.criterion does not exist
+\ModEnchants.java:4: error: package net.minecraft.advancements.criterion does not exist
+\ModEnchants.java:5: error: package net.minecraft.advancements.criterion does not exist
+\ModEnchants.java:6: error: package net.minecraft.advancements.criterion does not exist
+model\PerspectiveModel.java:6: error: cannot find symbol
+symbol:   class MultiBufferSource
+location: package net.minecraft.client.renderer
+model\PerspectiveModel.java:28: error: cannot find symbol
+symbol:   class MultiBufferSource
+location: interface PerspectiveModel
+ransform\CosmicRenderable.java:5: error: cannot find symbol
+symbol:   class MultiBufferSource
+location: package net.minecraft.client.renderer
+ransform\CosmicRenderable.java:15: error: cannot find symbol
+symbol:   class MultiBufferSource
+location: interface CosmicRenderable
+render\CosmicRenderQueue.java:5: error: cannot find symbol
+symbol:   class MultiBufferSource
+location: package net.minecraft.client.renderer
+render\item\IItemRenderer.java:5: error: cannot find symbol
+symbol:   class MultiBufferSource
+location: package net.minecraft.client.renderer
+render\item\IItemRenderer.java:22: error: cannot find symbol
+symbol:   class MultiBufferSource
+location: interface IItemRenderer
+l\loader\AvaritiaItemModelRenderers.java:15: error: cannot find symbol
+symbol:   class MultiBufferSource
+location: package net.minecraft.client.renderer
+er\AvaritiaShaders.java:47: error: cannot find symbol
+symbol:   class Mode
+location: class VertexFormat
+er\AvaritiaShaders.java:51: error: cannot find symbol
+symbol:   class Mode
+location: class VertexFormat
+er\AvaritiaShaders.java:55: error: cannot find symbol
+symbol:   class Mode
+location: class VertexFormat
+er\AvaritiaShaders.java:60: error: cannot find symbol
+symbol:   class Mode
+location: class VertexFormat
+ty\arrow\TraceArrowEntity.java:5: error: cannot find symbol
+symbol:   class CriteriaTriggers
+location: package net.minecraft.advancements
+er\NeutronSpacePreviewRenderer.java:15: error: cannot find symbol
+symbol:   class MultiBufferSource
+location: package net.minecraft.client.renderer
+er\util\ArcRender.java:6: error: cannot find symbol
+symbol:   class MultiBufferSource
+location: package net.minecraft.client.renderer
+er\util\ArcRender.java:32: error: cannot find symbol
+symbol:   class MultiBufferSource
+location: class ArcRender

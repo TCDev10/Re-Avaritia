@@ -1,5 +1,6 @@
 package committee.nova.mods.avaritia.common.entity;
 
+import net.minecraft.world.entity.EntityTypes;
 import committee.nova.mods.avaritia.init.registry.ModEntityTypes;
 import committee.nova.mods.avaritia.init.registry.ModItems;
 import net.minecraft.core.BlockPos;
@@ -359,7 +360,7 @@ public class InfinityThrownTrident extends AbstractArrow implements IEntityWithC
         }
         boolean hasAction = false;
         for (int i = 0; i < bolts; i++) {
-            LightningBolt lightning = EntityType.LIGHTNING_BOLT.create(serverLevel, EntitySpawnReason.EVENT);
+            LightningBolt lightning = EntityTypes.LIGHTNING_BOLT.create(serverLevel, EntitySpawnReason.EVENT);
             if (lightning != null) {
                 lightning.moveOrInterpolateTo(Vec3.atBottomCenterOf(hitPos));
                 lightning.setCause(thrower);

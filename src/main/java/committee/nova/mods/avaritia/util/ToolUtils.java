@@ -1,5 +1,7 @@
 package committee.nova.mods.avaritia.util;
 
+import net.minecraft.world.entity.EntityTypes;
+
 import committee.nova.mods.avaritia.init.registry.ModEntityTypes;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Sets;
@@ -373,7 +375,7 @@ public class ToolUtils {
             for (LivingEntity livingentity : level.getEntitiesOfClass(LivingEntity.class, player.getItemInHand(InteractionHand.MAIN_HAND).getSweepHitBox(player, victim))) {
                 double entityReachSq = Mth.square(player.entityInteractionRange()); // Use entity reach instead of constant 9.0. Vanilla uses bottom center-to-center checks here, so don't update this to use canReach, since it uses closest-corner checks.
                 if (!player.isAlliedTo(livingentity) && (!(livingentity instanceof ArmorStand) || !((ArmorStand) livingentity).isMarker()) && player.distanceToSqr(livingentity) < entityReachSq) {
-                    livingentity.knockback(0.6F, Mth.sin(player.getYRot() * ((float) Math.PI / 180F)), -Mth.cos(player.getYRot() * ((float) Math.PI / 180F)));
+                    livingentity.knockback(0.6F, Mth.sin(player.getYRot() * ((float) Math.PI / 180F)), -Mth.cos(player.getYRot() * ((float) Math.PI / 180F)), player.damageSources().playerAttack(player), 0.0F);
                 }
             }
             level.playSound(null, player.getX(), player.getY(), player.getZ(), SoundEvents.PLAYER_ATTACK_SWEEP, player.getSoundSource(), 1.0F, 1.0F);
@@ -491,7 +493,7 @@ public class ToolUtils {
         if (level instanceof ServerLevel serverLevel){
             boolean hasAction = false;
             for (int i = 0; i < bolts; i++) {
-                LightningBolt lightning = EntityType.LIGHTNING_BOLT.create(serverLevel, EntitySpawnReason.EVENT);
+                LightningBolt lightning = EntityTypes.LIGHTNING_BOLT.create(serverLevel, EntitySpawnReason.EVENT);
                 if (lightning != null) {
                     lightning.moveOrInterpolateTo(Vec3.atBottomCenterOf(hitPos));
                     lightning.setCause(thrower);

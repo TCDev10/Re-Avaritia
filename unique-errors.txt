@@ -1,0 +1,80 @@
+﻿\arrow\TraceArrowEntity.java:5: error: cannot find symbol
+\AvaritiaShaders.java:47: error: cannot find symbol
+\AvaritiaShaders.java:51: error: cannot find symbol
+\AvaritiaShaders.java:55: error: cannot find symbol
+\AvaritiaShaders.java:60: error: cannot find symbol
+\misc\InfinityBucketItem.java:45: error: cannot find symbol
+\ModEnchants.java:3: error: package net.minecraft.advancements.criterion does not exist
+\ModEnchants.java:4: error: package net.minecraft.advancements.criterion does not exist
+\ModEnchants.java:5: error: package net.minecraft.advancements.criterion does not exist
+\ModEnchants.java:6: error: package net.minecraft.advancements.criterion does not exist
+\NeutronSpacePreviewRenderer.java:15: error: cannot find symbol
+\NeutronSpacePreviewRenderer.java:150: error: package MultiBufferSource does not exist
+\util\ArcRender.java:32: error: cannot find symbol
+\util\ArcRender.java:6: error: cannot find symbol
+del\PerspectiveModel.java:28: error: cannot find symbol
+del\PerspectiveModel.java:6: error: cannot find symbol
+er\AvaritiaShaders.java:47: error: cannot find symbol
+er\AvaritiaShaders.java:51: error: cannot find symbol
+er\AvaritiaShaders.java:55: error: cannot find symbol
+er\AvaritiaShaders.java:60: error: cannot find symbol
+er\NeutronSpacePreviewRenderer.java:15: error: cannot find symbol
+er\NeutronSpacePreviewRenderer.java:150: error: package MultiBufferSource does not exist
+er\util\ArcRender.java:32: error: cannot find symbol
+er\util\ArcRender.java:6: error: cannot find symbol
+isc\InfinityBucketItem.java:45: error: cannot find symbol
+l\loader\AvaritiaItemModelRenderers.java:15: error: cannot find symbol
+loader\AvaritiaItemModelRenderers.java:15: error: cannot find symbol
+model\PerspectiveModel.java:28: error: cannot find symbol
+model\PerspectiveModel.java:6: error: cannot find symbol
+nder\CosmicRenderQueue.java:5: error: cannot find symbol
+nder\item\IItemRenderer.java:22: error: cannot find symbol
+nder\item\IItemRenderer.java:5: error: cannot find symbol
+nsform\CosmicRenderable.java:15: error: cannot find symbol
+nsform\CosmicRenderable.java:5: error: cannot find symbol
+ransform\CosmicRenderable.java:15: error: cannot find symbol
+ransform\CosmicRenderable.java:5: error: cannot find symbol
+render\CosmicRenderQueue.java:5: error: cannot find symbol
+render\item\IItemRenderer.java:22: error: cannot find symbol
+render\item\IItemRenderer.java:5: error: cannot find symbol
+rovider\AvaritiaAdvancementProvider.java:11: error: package net.minecraft.advancements.criterion does not exist
+rovider\AvaritiaAdvancementProvider.java:12: error: package net.minecraft.advancements.criterion does not exist
+rovider\AvaritiaAdvancementProvider.java:13: error: package net.minecraft.advancements.criterion does not exist
+rovider\AvaritiaTagProvider.java:14: error: cannot find symbol
+rovider\AvaritiaTagProvider.java:34: error: cannot find symbol
+rovider\AvaritiaTagProvider.java:37: error: cannot find symbol
+rovider\recipe\AvaritiaRecipeProvider.java:23: error: cannot find symbol
+rovider\recipe\AvaritiaRecipeProvider.java:24: error: package net.minecraft.advancements.criterion does not exist
+rovider\recipe\AvaritiaRecipeProvider.java:891: error: cannot find symbol
+rovider\recipe\AvaritiaRecipeProvider.java:896: error: cannot find symbol
+rovider\recipe\AvaritiaRecipeProvider.java:901: error: cannot find symbol
+rovider\recipe\AvaritiaRecipeProvider.java:906: error: cannot find symbol
+rovider\recipe\AvaritiaRecipeProvider.java:912: error: cannot find symbol
+rovider\recipe\AvaritiaRecipeProvider.java:918: error: cannot find symbol
+rovider\recipe\AvaritiaRecipeProvider.java:923: error: cannot find symbol
+rovider\recipe\AvaritiaRecipeProvider.java:927: error: cannot find symbol
+rovider\recipe\AvaritiaRecipeProvider.java:931: error: cannot find symbol
+rovider\recipe\AvaritiaRecipeProvider.java:936: error: cannot find symbol
+ry\ModEnchants.java:3: error: package net.minecraft.advancements.criterion does not exist
+ry\ModEnchants.java:4: error: package net.minecraft.advancements.criterion does not exist
+ry\ModEnchants.java:5: error: package net.minecraft.advancements.criterion does not exist
+ry\ModEnchants.java:6: error: package net.minecraft.advancements.criterion does not exist
+ty\arrow\TraceArrowEntity.java:5: error: cannot find symbol
+vider\AvaritiaAdvancementProvider.java:11: error: package net.minecraft.advancements.criterion does not exist
+vider\AvaritiaAdvancementProvider.java:12: error: package net.minecraft.advancements.criterion does not exist
+vider\AvaritiaAdvancementProvider.java:13: error: package net.minecraft.advancements.criterion does not exist
+vider\AvaritiaTagProvider.java:14: error: cannot find symbol
+vider\AvaritiaTagProvider.java:34: error: cannot find symbol
+vider\AvaritiaTagProvider.java:37: error: cannot find symbol
+vider\recipe\AvaritiaRecipeProvider.java:23: error: cannot find symbol
+vider\recipe\AvaritiaRecipeProvider.java:24: error: package net.minecraft.advancements.criterion does not exist
+vider\recipe\AvaritiaRecipeProvider.java:891: error: cannot find symbol
+vider\recipe\AvaritiaRecipeProvider.java:896: error: cannot find symbol
+vider\recipe\AvaritiaRecipeProvider.java:901: error: cannot find symbol
+vider\recipe\AvaritiaRecipeProvider.java:906: error: cannot find symbol
+vider\recipe\AvaritiaRecipeProvider.java:912: error: cannot find symbol
+vider\recipe\AvaritiaRecipeProvider.java:918: error: cannot find symbol
+vider\recipe\AvaritiaRecipeProvider.java:923: error: cannot find symbol
+vider\recipe\AvaritiaRecipeProvider.java:927: error: cannot find symbol
+vider\recipe\AvaritiaRecipeProvider.java:931: error: cannot find symbol
+vider\recipe\AvaritiaRecipeProvider.java:936: error: cannot find symbol

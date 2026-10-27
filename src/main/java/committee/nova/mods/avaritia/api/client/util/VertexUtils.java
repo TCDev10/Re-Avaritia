@@ -1,6 +1,7 @@
 package committee.nova.mods.avaritia.api.client.util;
 
 import com.mojang.blaze3d.vertex.DefaultVertexFormat;
+import com.mojang.blaze3d.GpuFormat;
 import com.mojang.blaze3d.vertex.VertexFormat;
 import com.mojang.blaze3d.vertex.VertexFormatElement;
 import committee.nova.mods.avaritia.api.client.model.IVertexConsumer;
@@ -35,6 +36,8 @@ public class VertexUtils {
         if (materialInfo.isTinted()) {
             consumer.setQuadTint(materialInfo.tintIndex());
         }
+        // 26.3 þö¿ shadeDirectionOverride(Direction) ÕÅûõ╗úõ║åµùºþÜä shade Õ©âÕ░ö´╝Ü
+        // null = µîëÕ«×ÚÖàµ£ØÕÉæþØÇÞë▓(µùº shade=true)´╝îDirection.UP = µüÆÕ«Üµ£Çõ║«(µùº shade=false´╝îþ¡ëõ╗À cardinalLighting.up())ÒÇé
         consumer.setApplyDiffuseLighting(materialInfo.shade());
         VertexFormat formatFrom = consumer.getVertexFormat();
         int countFrom = formatFrom.getElements().size();
@@ -47,10 +50,12 @@ public class VertexUtils {
 
     private static void putQuadElement(IVertexConsumer consumer, BakedQuad quad, int vertex, int elementIndex) {
         VertexFormatElement element = consumer.getVertexFormat().getElements().get(elementIndex);
-        if (element == VertexFormatElement.POSITION) {
+        // 26.3 ÞÁÀÚíÂþé╣Õàâþ┤áõ©ìÕåìµ£ëÕ©©ÚçÅµáçÞ»å´╝îþ╗ƒõ©Çµîë name() Õ¡ùþ¼ªõ©▓Þ»åÕê½Þ»¡õ╣ëÞºÆÞë▓ÒÇé
+        String name = element.name();
+        if (DefaultVertexFormat.POSITION_SEMANTIC_NAME.equals(name)) {
             Vector3fc position = quad.position(vertex);
             consumer.put(elementIndex, position.x(), position.y(), position.z(), 1.0F);
-        } else if (element == VertexFormatElement.COLOR) {
+        } else if (DefaultVertexFormat.COLOR_SEMANTIC_NAME.equals(name)) {
             int color = quad.bakedColors().color(vertex);
             consumer.put(
                     elementIndex,
@@ -59,10 +64,10 @@ public class VertexUtils {
                     (color & 0xFF) / 255.0F,
                     (color >>> 24) / 255.0F
             );
-        } else if (element == VertexFormatElement.UV0 || element == VertexFormatElement.UV) {
+        } else if (DefaultVertexFormat.UV0_SEMANTIC_NAME.equals(name)) {
             long packedUv = quad.packedUV(vertex);
             consumer.put(elementIndex, UVPair.unpackU(packedUv), UVPair.unpackV(packedUv));
-        } else if (element == VertexFormatElement.NORMAL) {
+        } else if (DefaultVertexFormat.NORMAL_SEMANTIC_NAME.equals(name)) {
             int normal = quad.bakedNormals().normal(vertex);
             if (BakedNormals.isUnspecified(normal)) {
                 consumer.put(elementIndex);
@@ -83,11 +88,12 @@ public class VertexUtils {
     public static void unpack(int[] from, float[] to, VertexFormat formatFrom, int v, int e) {
         int length = Math.min(4, to.length);
         VertexFormatElement element = formatFrom.getElements().get(e);
-        int vertexStart = v * formatFrom.getVertexSize() + formatFrom.getOffset(element);
-        int count = element.count();
-        VertexFormatElement.Type type = element.type();
-        boolean position = element == VertexFormatElement.POSITION;
-        int size = type.size();
+        int vertexStart = v * formatFrom.getVertexSize() + element.offset();
+        GpuFormat elementFormat = element.format();
+        int count = elementFormat.componentCount();
+        GpuFormat.ComponentType type = elementFormat.componentType();
+        boolean position = DefaultVertexFormat.POSITION_SEMANTIC_NAME.equals(element.name());
+        int size = type.byteSize();
         int mask = (256 << (8 * (size - 1))) - 1;
         for (int i = 0; i < length; i++) {
             if (i < count) {
@@ -100,17 +106,23 @@ public class VertexUtils {
                     bits |= from[index + 1] << ((4 - offset) * 8);
                 }
                 bits &= mask;
-                if (type == VertexFormatElement.Type.FLOAT) {
+                // 26.3 õ╗Ñ GpuFormat.ComponentType ÕÅûõ╗úµùºþÜä VertexFormatElement.Type´╝îµîëÕ¡ùÞèéÕ«¢Õ║ª/þ¼ªÕÅÀµÇºÕêåþ╗äõ┐ØµîüÕÄƒµ£ëÞºúþáüµò░Õ¡ªõ©ìÕÅÿÒÇé
+                if (type == GpuFormat.ComponentType.FLOAT_32) {
                     to[i] = Float.intBitsToFloat(bits);
-                } else if (type == VertexFormatElement.Type.UBYTE || type == VertexFormatElement.Type.USHORT) {
+                } else if (
+                        type == GpuFormat.ComponentType.UNORM_8 ||
+                                type == GpuFormat.ComponentType.UINT_8 ||
+                                type == GpuFormat.ComponentType.UNORM_16 ||
+                                type == GpuFormat.ComponentType.UINT_16
+                ) {
                     to[i] = (float) bits / mask;
-                } else if (type == VertexFormatElement.Type.UINT) {
+                } else if (type == GpuFormat.ComponentType.UINT_32) {
                     to[i] = (float) ((double) (bits & 0xFFFFFFFFL) / 0xFFFFFFFFL);
-                } else if (type == VertexFormatElement.Type.BYTE) {
+                } else if (type == GpuFormat.ComponentType.SNORM_8 || type == GpuFormat.ComponentType.SINT_8) {
                     to[i] = ((float) (byte) bits) / (mask >> 1);
-                } else if (type == VertexFormatElement.Type.SHORT) {
+                } else if (type == GpuFormat.ComponentType.SNORM_16 || type == GpuFormat.ComponentType.SINT_16) {
                     to[i] = ((float) (short) bits) / (mask >> 1);
-                } else if (type == VertexFormatElement.Type.INT) {
+                } else if (type == GpuFormat.ComponentType.SINT_32) {
                     to[i] = (float) ((double) (bits & 0xFFFFFFFFL) / (0xFFFFFFFFL >> 1));
                 }
             } else {
@@ -121,10 +133,11 @@ public class VertexUtils {
 
     public static void pack(float[] from, int[] to, VertexFormat formatTo, int v, int e) {
         VertexFormatElement element = formatTo.getElements().get(e);
-        int vertexStart = v * formatTo.getVertexSize() + formatTo.getOffset(element);
-        int count = element.count();
-        VertexFormatElement.Type type = element.type();
-        int size = type.size();
+        int vertexStart = v * formatTo.getVertexSize() + element.offset();
+        GpuFormat elementFormat = element.format();
+        int count = elementFormat.componentCount();
+        GpuFormat.ComponentType type = elementFormat.componentType();
+        int size = type.byteSize();
         int mask = (256 << (8 * (size - 1))) - 1;
         for (int i = 0; i < 4; i++) {
             if (i < count) {
@@ -133,12 +146,14 @@ public class VertexUtils {
                 int offset = pos & 3;
                 int bits = 0;
                 float f = i < from.length ? from[i] : 0;
-                if (type == VertexFormatElement.Type.FLOAT) {
+                if (type == GpuFormat.ComponentType.FLOAT_32) {
                     bits = Float.floatToRawIntBits(f);
                 } else if (
-                        type == VertexFormatElement.Type.UBYTE ||
-                                type == VertexFormatElement.Type.USHORT ||
-                                type == VertexFormatElement.Type.UINT
+                        type == GpuFormat.ComponentType.UNORM_8 ||
+                                type == GpuFormat.ComponentType.UINT_8 ||
+                                type == GpuFormat.ComponentType.UNORM_16 ||
+                                type == GpuFormat.ComponentType.UINT_16 ||
+                                type == GpuFormat.ComponentType.UINT_32
                 ) {
                     bits = Math.round(f * mask);
                 } else {
@@ -161,7 +176,7 @@ public class VertexUtils {
             int e2;
             for (e2 = 0; e2 < toCount; e2++) {
                 VertexFormatElement current = to.getElements().get(e2);
-                if (sameElementRole(expected, current) && expected.index() == current.index()) {
+                if (sameElementRole(expected, current)) {
                     break;
                 }
             }
@@ -171,8 +186,7 @@ public class VertexUtils {
     }
 
     private static boolean sameElementRole(VertexFormatElement expected, VertexFormatElement current) {
-        return expected == current
-                || expected == VertexFormatElement.UV && current == VertexFormatElement.UV0
-                || expected == VertexFormatElement.UV0 && current == VertexFormatElement.UV;
+        // 26.3 ÞÁÀÕàâþ┤áµîë name() µáçÞ»åÞ»¡õ╣ëÞºÆÞë▓(ÕÉ½ UV Õ║ÅÕÅÀ)´╝øµùºþëê UV/UV0 Õê½ÕÉìÕ£¿ 26.1.2 ÕÀ▓µÿ»ÕÉîõ©ÇÕ©©ÚçÅ´╝îµùáÚ£Çþë╣ÕêñÒÇé
+        return expected.name().equals(current.name());
     }
 }

@@ -82,16 +82,16 @@ public final class NeutronRingManageScreen extends Screen {
 
     public static void open(S2CNeutronRingOpenPack packet) {
         Minecraft minecraft = Minecraft.getInstance();
-        if (PortableUi.root(minecraft.screen) instanceof NeutronRingManageScreen current
+        if (PortableUi.root(minecraft.gui.screen()) instanceof NeutronRingManageScreen current
                 && current.storageId.equals(packet.storageId())) {
             current.accept(packet);
         } else {
-            minecraft.setScreen(new NeutronRingManageScreen(packet));
+            minecraft.gui.setScreen(new NeutronRingManageScreen(packet));
         }
     }
 
     public static void acceptPreview(S2CNeutronRingPreviewPack packet) {
-        if (PortableUi.root(Minecraft.getInstance().screen) instanceof NeutronRingManageScreen screen) {
+        if (PortableUi.root(Minecraft.getInstance().gui.screen()) instanceof NeutronRingManageScreen screen) {
             screen.handlePreview(packet);
         }
     }
@@ -398,7 +398,7 @@ public final class NeutronRingManageScreen extends Screen {
 
     @Override
     public void onClose() {
-        minecraft.setScreen(null);
+        minecraft.gui.setScreen(null);
     }
 
     private boolean insidePreviewChrome(double mouseX, double mouseY) {
