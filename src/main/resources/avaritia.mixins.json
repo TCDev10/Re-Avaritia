@@ -3,7 +3,6 @@
   "package": "committee.nova.mods.avaritia.mixin",
   "plugin": "committee.nova.mods.avaritia.mixin.AvaritiaMixinPlugin",
   "compatibilityLevel": "JAVA_21",
-  "refmap": "avaritia.refmap.json",
   "mixins": [
     "EnchantmentHelperMixin",
     "IItemStackExtensionMixin",
@@ -20,7 +19,8 @@
     "compat.JeiModIdHelperMixin",
     "client.RenderPassMixin",
     "client.RenderSystemMixin",
-    "client.RenderTypeMixin"
+    "client.RenderTypeMixin",
+    "client.PreparedRenderTypeMixin"
   ],
   "injectors": {
     "defaultRequire": 1

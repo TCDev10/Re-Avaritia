@@ -11,7 +11,6 @@ import com.mojang.blaze3d.vertex.DefaultVertexFormat;
 import com.mojang.blaze3d.vertex.VertexFormat;
 import com.mojang.blaze3d.PrimitiveTopology;
 import com.mojang.blaze3d.pipeline.BindGroupLayout;
-import net.minecraft.client.renderer.BindGroupLayouts;
 import net.minecraft.client.renderer.RenderPipelines;
 import net.minecraft.client.renderer.texture.TextureAtlasSprite;
 import net.neoforged.neoforge.client.event.RegisterRenderPipelinesEvent;
@@ -67,7 +66,7 @@ public class AvaritiaShaders {
                 .withLocation(Const.rl(name))
                 .withVertexShader(shader)
                 .withFragmentShader(shader)
-                .withBindGroupLayout(BindGroupLayouts.SAMPLER2)
+                // ENTITY_SNIPPET already has SAMPLER0_SAMPLER2; do not re-add SAMPLER2 (duplicates on 26.2)
                 .withBindGroupLayout(BindGroupLayout.builder()
                         .withUniform(AvaritiaShaderUniforms.UNIFORM_NAME, UniformType.UNIFORM_BUFFER)
                         .build())
