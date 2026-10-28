@@ -1,6 +1,5 @@
 package committee.nova.mods.avaritia.mixin.client;
 
-import committee.nova.mods.avaritia.client.render.RenderTypeDrawTracker;
 import committee.nova.mods.avaritia.client.shader.AvaritiaShaderUniforms;
 import com.mojang.blaze3d.systems.RenderPass;
 import com.mojang.blaze3d.systems.RenderSystem;
@@ -10,8 +9,8 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 /**
- * 26.2: {@code RenderSystem#flipFrame} removed. End-of-frame cleanup hooks
- * {@code ensurePipelineModifiersEmpty} (called after each frame render).
+ * Cosmic-item RenderType tracking mixins disabled: wrapping every prepare/draw
+ * broke chunk rendering with Sodium/Iris. Keep only scoped uniform bind + endFrame cleanup.
  */
 @Mixin(RenderSystem.class)
 public abstract class RenderSystemMixin {
@@ -23,6 +22,5 @@ public abstract class RenderSystemMixin {
     @Inject(method = "ensurePipelineModifiersEmpty", at = @At("TAIL"))
     private static void avaritia$endFrame(CallbackInfo ci) {
         AvaritiaShaderUniforms.endFrame();
-        RenderTypeDrawTracker.clear();
     }
 }
