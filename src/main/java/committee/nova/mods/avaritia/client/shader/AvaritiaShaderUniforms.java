@@ -67,9 +67,15 @@ public final class AvaritiaShaderUniforms {
         if (slice == null) {
             slice = CURRENT_SLICES.get(effect);
         }
-        if (slice != null) {
-            renderPass.setUniform(UNIFORM_NAME, slice);
+        // GUI item atlas / deferred draws can hit the cosmic pipeline without a prior set().
+        // Always bind a fallback UBO so GlCommandEncoder does not throw Missing uniform.
+        if (slice == null) {
+            slice = storage().writeUniform(new CosmicUniform(
+                    0.0F, 0.0F, 0.0F, 1.0F, 1.0F, effect.substrateAlpha(), copyUvs(null)
+            ));
+            CURRENT_SLICES.put(effect, slice);
         }
+        renderPass.setUniform(UNIFORM_NAME, slice);
     }
 
     public static void endFrame() {

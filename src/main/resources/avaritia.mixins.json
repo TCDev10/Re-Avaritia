@@ -1,4 +1,4 @@
-﻿{
+{
   "required": true,
   "package": "committee.nova.mods.avaritia.mixin",
   "plugin": "committee.nova.mods.avaritia.mixin.AvaritiaMixinPlugin",
@@ -16,7 +16,9 @@
     "ApplyExhaustionMixin"
   ],
   "client": [
-    "compat.JeiModIdHelperMixin"
+    "compat.JeiModIdHelperMixin",
+    "client.RenderPassMixin",
+    "client.RenderSystemMixin"
   ],
   "injectors": {
     "defaultRequire": 1
